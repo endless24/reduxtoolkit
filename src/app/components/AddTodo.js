@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../feactures/todo/todoSlice";
+import { addTodo } from "../feactures/todos/todoSlice";
 
 const AddTodo = () => {
   const [input, setInput] = useState("");
@@ -9,13 +9,13 @@ const AddTodo = () => {
 
   const addTodoHandle = (e) => {
     e.preventDefault();
-
+    if (!input) return;
     dispatch(addTodo(input));
     setInput("");
   };
 
   return (
-    <form onSubmit={addTodoHandle} className="space-x-3 mt-12 ">
+    <form onSubmit={addTodoHandle} className="space-x-3 mt-12 text-center ">
       <input
         type="text"
         className="bg-gray-800 rounded border 
